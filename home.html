@@ -1,0 +1,1530 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>WEDANGJP</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<style>
+    /* ========================= */
+/* Deposit & Withdraw */
+/* ========================= */
+
+.wallet-action{
+    display:flex;
+    gap:10px;
+    margin:15px 0;
+}
+
+.deposit-btn,
+.withdraw-btn{
+
+    flex:1;
+    height:45px;
+
+    background:#000;
+
+    color:#fff;
+
+    border:1px solid #333;
+
+    border-radius:10px;
+
+    font-size:15px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.deposit-btn:hover{
+
+    background:#FFD700;
+
+    color:#000;
+
+}
+
+.withdraw-btn:hover{
+
+    background:#FFD700;
+
+    color:#000;
+
+}
+/* ===== Running Text Promo ===== */
+
+.promo-bar{
+    width:100%;
+    background:#1b1b1b;
+    color:#FFD700;
+    overflow:hidden;
+    border-radius:8px;
+    padding:8px 0;
+    margin:10px 0;
+    white-space:nowrap;
+}
+
+.promo-text{
+    display:inline-block;
+    padding-left:100%;
+    font-size:15px;
+    font-weight:bold;
+    animation:promoSlide 18s linear infinite;
+}
+
+@keyframes promoSlide{
+
+    0%{
+        transform:translateX(0);
+    }
+
+    100%{
+        transform:translateX(-100%);
+    }
+
+}
+*{
+box-sizing:border-box;
+}
+
+
+body{
+
+margin:0;
+background:#080808;
+font-family:Arial,sans-serif;
+color:white;
+
+}
+
+
+
+.container{
+
+max-width:600px;
+margin:auto;
+padding:15px;
+
+}
+
+
+
+
+.box,
+.profile{
+    background:#151515;
+    padding:15px;
+    border-radius:15px;
+    margin-bottom:15px;
+    text-align:center;
+}
+
+
+
+
+input,
+select,
+button{
+
+width:100%;
+padding:12px;
+margin:6px 0;
+border:none;
+border-radius:10px;
+
+}
+
+
+
+
+button{
+
+background:#ffd700;
+font-weight:bold;
+cursor:pointer;
+
+}
+
+
+
+
+
+.logout{
+
+background:#ffd700;
+color:white;
+
+}
+
+
+
+
+
+.profile{
+
+display:none;
+
+}
+
+
+
+
+
+.avatar{
+
+width:65px;
+height:65px;
+border-radius:50%;
+
+}
+
+
+
+
+
+
+/* SLIDER */
+
+.slider{
+
+width:100%;
+overflow:hidden;
+border-radius:15px;
+margin:20px 0;
+
+}
+
+
+.slide{
+
+width:100%;
+height:250px;
+object-fit:cover;
+display:none;
+border-radius:15px;
+
+}
+
+
+
+
+
+
+
+.banner{
+
+background:#1b1b1b;
+padding:15px;
+border-radius:15px;
+text-align:center;
+margin-bottom:15px;
+
+}
+
+
+
+
+
+
+.search{
+
+width:100%;
+padding:12px;
+border-radius:10px;
+border:none;
+
+}
+
+
+
+
+
+
+.category{
+    display:flex;
+    gap:12px;
+    overflow-x:auto;
+    white-space:nowrap;
+    padding:10px 5px;
+    margin:15px 0;
+    scroll-behavior:smooth;
+
+    /* Hilangkan scrollbar */
+    scrollbar-width:none;
+}
+
+.category::-webkit-scrollbar{
+    display:none;
+}
+
+.category span{
+    flex:0 0 auto;
+    background:#1b1b1b;
+    color:#fff;
+    border:1px solid #2f2f2f;
+    border-radius:30px;
+    padding:12px 18px;
+    font-size:14px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.category span:hover{
+    background:#FFD700;
+    color:#000;
+}
+
+
+
+
+
+
+.game-grid{
+
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:12px;
+
+}
+
+
+
+
+
+
+.game-card{
+
+background:#151515;
+border-radius:15px;
+overflow:hidden;
+
+}
+
+
+
+
+
+
+.game-card img{
+
+width:100%;
+height:130px;
+object-fit:cover;
+
+}
+
+
+
+
+
+
+.game-content{
+
+padding:12px;
+text-align:center;
+
+}
+
+
+
+
+
+
+.buttons{
+
+display:flex;
+gap:8px;
+
+}
+
+
+
+
+
+
+.btn{
+
+flex:1;
+padding:10px;
+border-radius:10px;
+font-weight:bold;
+
+}
+
+
+
+
+
+
+.demo{
+
+background:#333;
+color:white;
+
+}
+
+
+
+
+
+
+.main{
+
+background:#ffd700;
+color:black;
+
+}
+
+
+
+
+
+
+.rank{
+
+padding:10px;
+border-bottom:1px solid #333;
+
+}
+
+
+
+
+
+
+
+@media(max-width:600px){
+
+
+.slide{
+
+height:160px;
+
+}
+
+
+.game-card img{
+
+height:110px;
+
+}
+
+
+}
+
+
+.login-logo{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin-bottom:20px;
+}
+
+.login-logo-img{
+    width:260px;
+    max-width:90%;
+    height:auto;
+    display:block;
+}
+
+@media (max-width:600px){
+    .login-logo-img{
+        width:210px;
+    }
+}
+
+
+.form-logo{
+    text-align:center;
+    margin-bottom:20px;
+}
+/* ===== Bottom Navigation ===== */
+
+.bottom-nav{
+    position:fixed;
+    bottom:0;
+    left:0;
+    width:100%;
+    height:72px;
+    background:#1b1b1b;
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+    border-top:1px solid #1b1b1b;
+    z-index:9999;
+}
+
+.nav-item{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    color:#ffffff;
+    text-decoration:none;
+    transition:.3s;
+}
+
+.nav-item:hover{
+    background:#1b1b1b;
+}
+
+.nav-item.active{
+    color:#ffffff;
+}
+
+.nav-icon{
+    width:28px;
+    height:28px;
+    margin-bottom:4px;
+}
+
+.nav-icon svg{
+    width:100%;
+    height:100%;
+}
+
+.nav-item span{
+    font-size:13px;
+    font-weight:500;
+    letter-spacing:.5px;
+}
+
+body{
+    padding-bottom:80px;
+}
+</style>
+
+
+</head>
+
+
+
+<body>
+
+
+<div class="container">
+
+
+
+
+
+
+<!-- LOGIN PEMAIN -->
+
+
+<div class="box" id="loginBox">
+
+
+<div class="login-logo">
+    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhI36aLmgs8Z41T8lua3DnPUL2dV1cMpL53GOawVDOiKr0iXZ-WVfxpCang_KuM0sIza_DKCIxCTDM7-GXFl_Jn-RFYWNfZ0_jkHp2qy1tmwe4XjYoAxfrjrc4vAuuD1uLWQysSPrD4Lot0F7S_HXaAIDs45BFH3u_KH8u3YRmJ3kpEV-sjCXEpvAtpUhJW/s1536/ChatGPT%20Image%20Jul%2012,%202026,%2012_38_03%20AM.png"
+         alt="Logo"
+         class="login-logo-img">
+</div>
+
+
+
+<input id="loginUser"
+placeholder="Nama Pengguna">
+
+
+
+<input id="loginPass"
+type="password"
+placeholder="Kata Sandi">
+
+
+
+<button id="loginBtn">
+
+MASUK
+
+</button>
+
+
+
+
+<p id="openRegister"
+style="color:#ffd700;cursor:pointer">
+
+Belum punya akun? DAFTAR
+
+</p>
+
+
+
+</div>
+
+
+
+
+
+
+
+<!-- PENDAFTARAN -->
+
+
+<div class="box" id="registerBox" style="display:none;">
+
+
+<h3>
+
+📝 PENDAFTARAN PEMAIN
+
+</h3>
+
+
+
+
+<input id="regUser"
+placeholder="Nama Pengguna">
+
+
+
+<input id="regPass"
+type="password"
+placeholder="Kata Sandi">
+
+
+
+<input id="regConfirm"
+type="password"
+placeholder="Konfirmasi Sandi">
+
+
+
+<input id="regEmail"
+placeholder="Alamat Email">
+
+
+
+<select id="regServer">
+
+
+<option value="">
+
+Pilih Slot Server
+
+</option>
+
+
+
+<option>
+
+Indonesia
+
+</option>
+
+
+
+<option>
+
+Thailand
+
+</option>
+
+
+
+<option>
+
+Kamboja
+
+</option>
+
+
+
+</select>
+
+
+
+
+
+<input id="regPhone"
+placeholder="WA / Nomor Telepon">
+
+
+<input type="text"
+id="namaRekening"
+placeholder="Nama Sesuai Rekening">
+
+<label>Jenis Akun Transaksi</label>
+
+<select id="jenisTransaksi" onchange="ubahTransaksi()">
+
+<option value="">Pilih Jenis</option>
+
+<option value="bank">BANK</option>
+
+<option value="ewallet">E-WALLET</option>
+
+</select>
+<div id="bankBox" style="display:none;">
+
+<select id="bank">
+
+<option>BCA</option>
+
+<option>BRI</option>
+
+<option>BNI</option>
+
+<option>MANDIRI</option>
+
+<option>BANK JAGO</option>
+
+<option>SEABANK</option>
+
+</select>
+
+<input
+type="text"
+placeholder="Nomor Rekening">
+
+</div>
+<div id="ewalletBox" style="display:none;">
+
+<select id="ewallet">
+
+<option>DANA</option>
+
+<option>GOPAY</option>
+
+<option>LINKAJA</option>
+
+<option>OVO</option>
+
+<option>ShopeePay</option>
+
+</select>
+
+<input
+type="text"
+placeholder="Nomor E-Wallet">
+
+</div>
+    
+<button id="registerBtn">
+
+BUAT AKUN
+
+</button>
+
+
+
+
+<p id="backLogin"
+style="color:#ffd700;cursor:pointer">
+
+Kembali LOGIN
+
+</p>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+<!-- PROFILE PEMAIN -->
+
+
+<div class="profile" id="profile">
+
+
+
+<img class="avatar"
+src="https://cdn-icons-png.flaticon.com/512/149/149071.png">
+
+
+
+<h3>
+
+👤 <span id="playerName"></span>
+
+</h3>
+
+
+
+<p>
+
+💰 Saldo : <b>0</b>
+
+</p>
+
+
+
+
+<p>
+
+🌐 Server :
+
+<span id="playerServer"></span>
+
+</p>
+
+
+
+
+
+<!-- Tombol Deposit & Withdraw -->
+<div class="wallet-action">
+
+    <a href="https://wedangjp.pages.dev/deposit" class="deposit-btn">
+        💰 Deposit
+    </a>
+
+<a href="javascript:void(0)" class="withdraw-btn" onclick="openWithdraw()">
+    🏦 Withdraw
+</a>
+
+</div>
+
+<!-- Tombol Keluar -->
+<button class="logout" id="logoutBtn">
+
+🚪 KELUAR AKUN
+
+</button>
+<!-- POPUP WITHDRAW -->
+
+<div id="withdrawModal" style="display:none;position:fixed;left:0;top:0;width:100%;height:100%;background:rgba(0,0,0,.8);z-index:99999;">
+
+<div style="background:#151515;width:90%;max-width:380px;margin:80px auto;padding:20px;border-radius:15px;color:#fff;">
+
+<h3 style="text-align:center;color:#FFD700;">
+🏦 WITHDRAW
+</h3>
+
+<p>
+<b>👤 Username</b><br>
+<span id="wdUser"></span>
+</p>
+
+<p>
+<b>💰 Saldo</b><br>
+Rp <span id="wdSaldo">0</span>
+</p>
+
+<p>
+<b>🏦 Rekening</b><br>
+*********
+</p>
+
+<input
+type="number"
+id="wdNominal"
+placeholder="Nominal Withdraw">
+
+<button onclick="kirimWithdraw()">
+📤 KIRIM
+</button>
+
+<button
+style="background:#444;color:#fff;"
+onclick="closeWithdraw()">
+❌ Tutup
+</button>
+
+</div>
+
+</div>
+
+
+</div>
+<!-- SLIDER BANNER -->
+
+<div class="slider">
+
+
+<img class="slide"
+src="https://blogger.googleusercontent.com/img/a/AVvXsEgxrpPu5vDhuWjNPnrtO2HN_WgLM4IhYVsvH7Q_h8rs27-7kuj0zM6bfBP-yI6KeXQPne-awFNiWkXU49AZ-Kx4TPu5uba7IfsynDPAVGi_-TkBSeJ7QbIDYKO6snkyM2flLa7BW7Ur4k8SphHbkZeEON71QFsttOpKA4g4BWjZkqIFfuIhGZhQMuWA2W86">
+
+
+<img class="slide"
+src="https://blogger.googleusercontent.com/img/a/AVvXsEjg-Gd_wMlY6aXar_c3dT4T9GCOvCxzEkzqRjVUhcWE5m-4O34i-RcePJfJ_JzhoFjjPNe6bIv1LmHfL_i7hHvhvArhXCFIvZl0mJzJ7PPBCw2-j1qbMY2X6gO4-DHzZ4RxlYEDDlTzoKrBUFibbLTs2nVdgXEGubu0Zpji7tc3TltDJytlxEiwVAJh-Qqd">
+
+
+<img class="slide"
+src="https://blogger.googleusercontent.com/img/a/AVvXsEhEEWTE1KBRn1vFC9UdIIozvF7Wenj9IRthbE5UdnygyUMld5WFDDtEQzGWBT6uuhwd43UBYT0zvdp6eULOl-VRnZxi4XBV94aYzEPefUZlD9dA1XhR9RAcz8w1vyDk4jaqwCq3hD7RVvO2QA2hijJzQWI0VgMK7-7sTneuoLmlYpe6_3qK0nK1bMdWkm5g">
+
+
+<img class="slide"
+src="https://blogger.googleusercontent.com/img/a/AVvXsEgEoPFPJAACixmlItJA1ytzGZa9neugpXUJcphwS2EgS2S3pB5u46XeG2XQGKt6D4jPBg1uJeAJykEjH9Y2H7vKjS3urtWSOQqlb4NmofXDt5bT6G3q7BRumIXBZtP56jt90VY-S48bcJTqWwBpwyJI4ezc6VJgiI3Ni1Mjl88ykUQTBw7RebF5B2Bo1JLu">
+
+
+<img class="slide"
+src="https://blogger.googleusercontent.com/img/a/AVvXsEix-mF75MrSlXFS-UiiCaWjgJaHMUfOMVIF3dsTaf96clsBuojJKlFF5BAfNib2VpQrQT5UeqRPatS74rUOC9UELBLT4wJ8zYsahdJzfhwb9TOd2cdykjOZx7XWNkFo50ROJGYwFZe8J5H2z4o39gIO4yL4Y8Zqij-RtddckhRnTFJSOf21-Yg2BpPC73Sf">
+
+
+</div>
+
+
+
+
+
+
+
+<div class="promo-bar">
+    <div class="promo-text">
+        📢 WEDANGJP SITUS RESMI 2026 ⭐ BONUS NEW MEMBER 100% ⭐ DEPOSIT CEPAT ⭐ WITHDRAW CEPAT 📢
+    </div>
+</div>
+
+
+
+
+
+
+
+<input class="search"
+placeholder="🔎 Cari Game">
+
+
+
+
+
+
+
+<div class="category">
+
+<button class="category-item" onclick="window.location.href='slots.html'">🎰 SLOTS</button>
+
+<button class="category-item" onclick="window.location.href='games.html'">🎮 GAMES</button>
+
+<button class="category-item" onclick="window.location.href='sports.html'">⚽ SPORTS</button>
+
+<button class="category-item" onclick="window.location.href='casino.html'">🎲 CASINO</button>
+
+<button class="category-item" onclick="window.location.href='p2p.html'">🤝 P2P</button>
+
+<button class="category-item" onclick="window.location.href='sabung.html'">🐓 SABUNG AYAM</button>
+
+<button class="category-item" onclick="window.location.href='tembakikan.html'">🐟 TEMBAK IKAN</button>
+
+<button class="category-item" onclick="window.location.href='lotre.html'">🎟️ LOTRE</button>
+
+</div>
+
+
+
+
+
+
+
+
+<div class="game-grid">
+
+
+
+
+
+<div class="game-card">
+
+
+<img src="https://maingratis.bryanfatburger.com/img/olympus-pragmatic.webp">
+
+
+<div class="game-content">
+
+
+<b>
+
+Gates of Olympus
+
+
+</b>
+
+
+
+<div class="buttons">
+
+
+<button class="btn demo">
+
+<a href="https://d3pr994l7txgml.cloudfront.net/gs2c/openGame.do?extGame=1&gameSymbol=vs20olympgate&lang=ID&cur=IDR&jurisdiction=99" class="demo">
+    DEMO
+</a>
+
+
+
+<button class="btn main"
+onclick="mainGame('https://LINK-GAME-ANDA.com')">
+    MAIN
+</button>
+
+
+</div>
+
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="game-card">
+
+
+<img src="https://maingratis.bryanfatburger.com/img/vs20starlightold.webp">
+
+
+<div class="game-content">
+
+
+<b>
+
+Starlight Princess
+
+</b>
+
+
+
+<div class="buttons">
+
+
+<button class="btn demo">
+
+<a href="https://d3pr994l7txgml.cloudfront.net/gs2c/openGame.do?extGame=1&gameSymbol=vs20starlight&lang=ID&cur=IDR&jurisdiction=99" class="demo">
+    DEMO
+</a>
+
+
+
+<button class="btn main"
+onclick="mainGame('https://LINK-GAME-ANDA.com')">
+    MAIN
+</button>
+
+
+</div>
+
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="game-card">
+
+
+<img src="https://maingratis.bryanfatburger.com/img/mahjongwaysdemo.webp">
+
+
+<div class="game-content">
+
+
+<b>
+
+Mahjong Ways
+
+</b>
+
+
+
+<div class="buttons">
+
+
+<button class="btn demo">
+
+<a href="https://m.eajzzxhro.com/65/index.html?ot=ca7094186b309ee149c55c8822e7ecf2&l=en&btt=2&or=21novodx%3Dzveuuscmj%3Dxjh&__hv=2fMEQCICuqoNGFMML4fGBdQE%2BkWN6hW4%2FfORGq%2Fnk1ZEMnawwmAiAxGYxJjOCWQZyBSVILpJeMljpfcPHLJNuUZN5itlB12A%3D%3D&__sv=010401YytG6oT6vOl81kKt_NDwR6QjynyruQC7y9kpWiV7QEg" class="demo">
+    DEMO
+</a>
+
+
+
+<button class="btn main"
+onclick="mainGame('https://LINK-GAME-ANDA.com')">
+    MAIN
+</button>
+
+
+</div>
+
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="game-card">
+
+
+<img src="https://maingratis.bryanfatburger.com/img/demoslot-mahjongways2.webp">
+
+
+<div class="game-content">
+
+
+<b>
+
+Mahjong Ways 2
+
+</b>
+
+
+
+<div class="buttons">
+
+
+<button class="btn demo">
+
+<a href="https://m.eajzzxhro.com/74/index.html?ot=ca7094186b309ee149c55c8822e7ecf2&l=en&btt=2&or=21novodx%3Dzveuuscmj%3Dxjh&__hv=2fMEQCICuqoNGFMML4fGBdQE%2BkWN6hW4%2FfORGq%2Fnk1ZEMnawwmAiAxGYxJjOCWQZyBSVILpJeMljpfcPHLJNuUZN5itlB12A%3D%3D&__sv=010401YytG6oT6vOl81kKt_NDwR6QjynyruQC7y9kpWiV7QEg" class="demo">
+    DEMO
+</a>
+
+
+
+<button class="btn main"
+onclick="mainGame('https://LINK-GAME-ANDA.com')">
+    MAIN
+</button>
+
+
+</div>
+
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<script>
+function mainGame(link){
+
+    if(localStorage.getItem("isLogin") === "true"){
+
+        window.location.href = link;
+
+    }else{
+
+        alert("❌ Saldo tidak cukup");
+
+    }
+
+}
+
+
+// DAFTAR
+
+
+document.getElementById("openRegister").onclick=function(){
+
+loginBox.style.display="none";
+
+registerBox.style.display="block";
+
+};
+
+
+
+
+
+document.getElementById("backLogin").onclick=function(){
+
+registerBox.style.display="none";
+
+loginBox.style.display="block";
+
+};
+
+
+
+
+
+
+
+document.getElementById("registerBtn").onclick=function(){
+
+
+let user=regUser.value;
+
+let pass=regPass.value;
+
+let confirm=regConfirm.value;
+
+let server=regServer.value;
+
+
+
+if(user=="" || pass=="" || server==""){
+
+alert("Data belum lengkap");
+
+return;
+
+}
+
+
+
+if(pass!==confirm){
+
+alert("Konfirmasi password salah");
+
+return;
+
+}
+
+
+
+localStorage.username=user;
+
+localStorage.password=pass;
+
+localStorage.server=server;
+
+
+
+masukAkun(user,server);
+
+
+};
+
+
+
+
+
+
+
+
+
+document.getElementById("loginBtn").onclick=function(){
+
+
+if(
+
+loginUser.value==localStorage.username
+
+&&
+
+loginPass.value==localStorage.password
+
+){
+
+
+masukAkun(
+
+localStorage.username,
+
+localStorage.server
+
+);
+
+
+
+}
+
+else{
+
+
+alert("Login gagal");
+
+
+}
+
+
+};
+
+
+
+
+
+
+
+
+function masukAkun(user,server){
+
+
+loginBox.style.display="none";
+
+registerBox.style.display="none";
+
+
+profile.style.display="block";
+
+
+playerName.innerHTML=user;
+
+
+playerServer.innerHTML=server;
+
+
+
+localStorage.loginStatus="aktif";
+
+
+}
+
+
+
+
+
+
+
+
+
+document.getElementById("logoutBtn").onclick=function(){
+
+
+profile.style.display="none";
+
+
+loginBox.style.display="block";
+
+
+
+localStorage.removeItem("loginStatus");
+
+
+
+loginUser.value="";
+
+loginPass.value="";
+
+
+
+alert("Berhasil keluar akun");
+
+
+};
+
+
+
+
+
+
+
+
+
+// AUTO LOGIN
+
+
+window.onload=function(){
+
+
+if(localStorage.loginStatus=="aktif"){
+
+
+masukAkun(
+
+localStorage.username,
+
+localStorage.server
+
+);
+
+
+}
+
+
+};
+
+
+
+
+
+
+
+
+
+// SLIDER
+
+
+let slideIndex=0;
+
+
+function slider(){
+
+
+let slides=document.getElementsByClassName("slide");
+
+
+
+for(let i=0;i<slides.length;i++){
+
+slides[i].style.display="none";
+
+}
+
+
+
+slideIndex++;
+
+
+
+if(slideIndex>slides.length){
+
+slideIndex=1;
+
+}
+
+
+
+slides[slideIndex-1].style.display="block";
+
+
+
+setTimeout(slider,4000);
+
+
+
+}
+
+
+
+slider();
+
+function ubahTransaksi(){
+
+let jenis=document.getElementById("jenisTransaksi").value;
+
+document.getElementById("bankBox").style.display="none";
+document.getElementById("ewalletBox").style.display="none";
+
+if(jenis=="bank"){
+
+document.getElementById("bankBox").style.display="block";
+
+}
+
+if(jenis=="ewallet"){
+
+document.getElementById("ewalletBox").style.display="block";
+
+}
+
+}
+function openWithdraw(){
+
+document.getElementById("withdrawModal").style.display="block";
+
+document.getElementById("wdUser").innerHTML=localStorage.username;
+
+}
+
+function closeWithdraw(){
+
+document.getElementById("withdrawModal").style.display="none";
+
+}
+
+function kirimWithdraw(){
+
+let nominal=document.getElementById("wdNominal").value;
+
+if(nominal==""){
+
+alert("❌ Masukkan nominal withdraw.");
+
+return;
+
+}
+
+alert("❌ Saldo Anda tidak mencukupi.");
+
+}
+</script>
+
+<!-- Bottom Navigation -->
+<div class="bottom-nav">
+
+    <a href="#" class="nav-item active">
+        <div class="nav-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 11.5L12 4l9 7.5"></path>
+                <path d="M5 10.5V20h5v-6h4v6h5v-9.5"></path>
+            </svg>
+        </div>
+        <span>HOME</span>
+    </a>
+
+    <a href="https://wedangjp.pages.dev/promosi" class="nav-item">
+        <div class="nav-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="8" width="18" height="13" rx="2"></rect>
+                <path d="M12 8V21"></path>
+                <path d="M3 12H21"></path>
+                <path d="M7 8c0-2 1.5-4 5-1"></path>
+                <path d="M17 8c0-2-1.5-4-5-1"></path>
+            </svg>
+        </div>
+        <span>PROMOSI</span>
+    </a>
+
+    <a href="https://direct.lc.chat/19841225/" class="nav-item">
+        <div class="nav-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 12a8.5 8.5 0 01-8.5 8.5A8.5 8.5 0 013 12 8.5 8.5 0 0111.5 3 8.5 8.5 0 0120 11.5"></path>
+                <path d="M8 11h8"></path>
+                <path d="M8 15h5"></path>
+            </svg>
+        </div>
+        <span>LIVE CHAT</span>
+    </a>
+
+</div>
+
+</body>
+
+</html>
