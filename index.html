@@ -785,9 +785,9 @@ src="https://cdn-icons-png.flaticon.com/512/149/149071.png">
         💰 Deposit
     </a>
 
-<a href="javascript:void(0)" class="withdraw-btn" onclick="openWithdraw()">
-    🏦 Withdraw
-</a>
+    <a href="https://link-anda.com" class="withdraw-btn">
+        🏦 Withdraw
+    </a>
 
 </div>
 
@@ -797,49 +797,7 @@ src="https://cdn-icons-png.flaticon.com/512/149/149071.png">
 🚪 KELUAR AKUN
 
 </button>
-<!-- POPUP WITHDRAW -->
 
-<div id="withdrawModal" style="display:none;position:fixed;left:0;top:0;width:100%;height:100%;background:rgba(0,0,0,.8);z-index:99999;">
-
-<div style="background:#151515;width:90%;max-width:380px;margin:80px auto;padding:20px;border-radius:15px;color:#fff;">
-
-<h3 style="text-align:center;color:#FFD700;">
-🏦 WITHDRAW
-</h3>
-
-<p>
-<b>👤 Username</b><br>
-<span id="wdUser"></span>
-</p>
-
-<p>
-<b>💰 Saldo</b><br>
-Rp <span id="wdSaldo">0</span>
-</p>
-
-<p>
-<b>🏦 Rekening</b><br>
-*********
-</p>
-
-<input
-type="number"
-id="wdNominal"
-placeholder="Nominal Withdraw">
-
-<button onclick="kirimWithdraw()">
-📤 KIRIM
-</button>
-
-<button
-style="background:#444;color:#fff;"
-onclick="closeWithdraw()">
-❌ Tutup
-</button>
-
-</div>
-
-</div>
 
 
 </div>
@@ -899,21 +857,21 @@ placeholder="🔎 Cari Game">
 
 <div class="category">
 
-<span>🎰 SLOTS</span>
+<button class="category-item" onclick="window.location.href='slots.html'">🎰 SLOTS</button>
 
-<span>🎮 GAMES</span>
+<button class="category-item" onclick="window.location.href='games.html'">🎮 GAMES</button>
 
-<span>⚽ SPORTS</span>
+<button class="category-item" onclick="window.location.href='sports.html'">⚽ SPORTS</button>
 
-<span>🎲 CASINO</span>
+<button class="category-item" onclick="window.location.href='casino.html'">🎲 CASINO</button>
 
-<span>🤝 P2P</span>
+<button class="category-item" onclick="window.location.href='p2p.html'">🤝 P2P</button>
 
-<span>🐓 SABUNG AYAM</span>
+<button class="category-item" onclick="window.location.href='sabung.html'">🐓 SABUNG AYAM</button>
 
-<span>🐟 TEMBAK IKAN</span>
+<button class="category-item" onclick="window.location.href='tembakikan.html'">🐟 TEMBAK IKAN</button>
 
-<span>🎟️ LOTRE</span>
+<button class="category-item" onclick="window.location.href='lotre.html'">🎟️ LOTRE</button>
 
 </div>
 
@@ -1454,35 +1412,7 @@ document.getElementById("ewalletBox").style.display="block";
 }
 
 }
-function openWithdraw(){
 
-document.getElementById("withdrawModal").style.display="block";
-
-document.getElementById("wdUser").innerHTML=localStorage.username;
-
-}
-
-function closeWithdraw(){
-
-document.getElementById("withdrawModal").style.display="none";
-
-}
-
-function kirimWithdraw(){
-
-let nominal=document.getElementById("wdNominal").value;
-
-if(nominal==""){
-
-alert("❌ Masukkan nominal withdraw.");
-
-return;
-
-}
-
-alert("❌ Saldo Anda tidak mencukupi.");
-
-}
 </script>
 
 <!-- Bottom Navigation -->
