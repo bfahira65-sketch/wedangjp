@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pusat Pembayaran</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Poppins,sans-serif;
+}
+
+body{
+    background:#0d1117;
+    color:#fff;
+    padding:20px;
+}
+
+.container{
+    max-width:750px;
+    margin:auto;
+}
+
+.header{
+    text-align:center;
+    margin-bottom:25px;
+}
+
+.header img{
+    width:220px;
+    max-width:100%;
+    height:auto;
+    border-radius:0;
+    background:transparent;
+    padding:0;
+    display:block;
+    margin:auto;
+}
+
+.header h1{
+    margin-top:15px;
+    color:#FFD700;
+}
+
+.header p{
+    color:#bbb;
+}
+
+.notice{
+    background:#161b22;
+    border-left:5px solid gold;
+    padding:15px;
+    border-radius:12px;
+    margin-bottom:25px;
+}
+
+.section-title{
+    margin:25px 0 15px;
+    color:#FFD700;
+}
+
+.card{
+    background:#161b22;
+    border:1px solid rgba(255,215,0,.2);
+    border-radius:15px;
+    margin-bottom:15px;
+    overflow:hidden;
+}
+
+.card-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px;
+    cursor:pointer;
+}
+
+.left{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.logo{
+    width:65px;
+    height:65px;
+    background:#fff;
+    border-radius:12px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:8px;
+}
+
+.logo img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+}
+
+.status{
+    padding:4px 12px;
+    border-radius:20px;
+    font-size:12px;
+    color:#fff;
+    font-weight:bold;
+}
+
+.online{
+    background:#18c964;
+}
+
+.offline{
+    background:#ff3b30;
+}
+
+.maintenance{
+    background:#ff9800;
+}
+
+.status.online{
+    background:#18c964;
+}
+
+.status.offline{
+    background:#ff3b30;
+}
+
+.status.maintenance{
+    background:#ff9800;
+}
+
+.content{
+    display:none;
+    padding:18px;
+    border-top:1px solid rgba(255,255,255,.08);
+}
+
+.info{
+    margin:8px 0;
+}
+
+.copy{
+    width:100%;
+    margin-top:15px;
+    padding:12px;
+    background:gold;
+    border:none;
+    border-radius:10px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.qris{
+    text-align:center;
+}
+
+.qris img{
+    width:230px;
+    border-radius:12px;
+    background:#fff;
+    padding:8px;
+}
+
+.footer{
+    margin-top:30px;
+    text-align:center;
+    color:#888;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="header">
+<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh70uu_a46O5xDU597Xk2AQtUy-blJmbLMJ7AVex_wawPhil47vEqO1EcuJVRCG4Xb_Wwj_prGNhPeNrzyTzoEZWGh_XEhCVks_BRtew3qTfipJtZf3SIMGJwcQVE1NXLb2JFcg7ebshzNoNA4y-qJyYKC6uld2sck6Fd0NqkMpy4Du5oFC3xCX0s3_kAXJ/s1536/ChatGPT%20Image%20Jul%201,%202026,%2005_14_57%20PM.png">
+</div>
+
+<div class="notice">
+Silakan pilih metode Deposit yang tersedia. Setelah Deposit berhasil, mohon lakukan konfirmasi melalui Live Chat atau kembali ke akun Anda. Deposit akan segera kami proses. Terima kasih.
+</div>
+
+<h2 class="section-title">🏦 Rekening Bank</h2>
+
+<div id="bank"></div>
+
+<h2 class="section-title">🏦 Bank Digital</h2>
+
+<div id="digital"></div>
+
+<h2 class="section-title">💳 E-Wallet</h2>
+
+<div id="ewallet"></div>
+
+<h2 class="section-title">📱 QRIS</h2>
+
+<div class="card">
+<div class="content" style="display:block">
+<div class="qris">
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Logo_QRIS.svg/330px-Logo_QRIS.svg.png" width="140">
+
+<br><br>
+
+<img src="LINK_QRIS_ANDA.png" width="250">
+
+</div>
+<p style="margin-top:15px">Scan menggunakan aplikasi pembayaran Anda.</p>
+</div>
+</div>
+</div>
+
+<div class="footer">
+© 2026 TOKOBET<br>
+Deposit Aman • Cepat • Terpercaya
+</div>
+
+</div>
+
+<script>
+
+const rekeningBank = [
+
+{
+BCA: "OFFLINE",
+logo:"https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Bank_Central_Asia.svg/1920px-Bank_Central_Asia.svg.png",
+owner:"*****",
+number:"*****"
+},
+
+{
+name:"BRI",
+logo:"https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Bank_BRI_2000.svg/960px-Bank_BRI_2000.svg.png",
+owner:"*****",
+number:"*****"
+},
+
+{
+name:"BNI",
+logo:"https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Bank_Negara_Indonesia_logo_%282004%29.svg/500px-Bank_Negara_Indonesia_logo_%282004%29.svg.png",
+owner:"*****",
+number:"*****"
+},
+
+{
+name:"Mandiri",
+logo:"https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Bank_Mandiri_logo_2016.svg/500px-Bank_Mandiri_logo_2016.svg.png",
+owner:"*****",
+number:"*****"
+}
+
+];
+
+const bankDigital=[
+
+{
+name:"SeaBank",
+logo:"https://iconlogovector.com/uploads/images/2024/03/lg-65e38a526d27d-SeaBank.webp",
+owner:"Dimas jaka saputra",
+number:"901714215440"
+},
+
+{
+name:"Bank Jago",
+logo:"https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Logo-jago.svg/250px-Logo-jago.svg.png",
+owner:"Dimas jaka saputra",
+number:"102539846287"
+}
+
+];
+
+const ewallet=[
+
+{
+name:"DANA",
+logo:"https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Logo_dana_blue.svg/1280px-Logo_dana_blue.svg.png",
+owner:"Fahraihan alfarezha",
+number:"081269769231"
+},
+
+{
+name:"OVO",
+logo:"https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Logo_ovo_purple.svg/1280px-Logo_ovo_purple.svg.png",
+owner:"*****",
+number:"*****"
+},
+
+{
+name:"GoPay",
+logo:"https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Gopay_logo.svg/250px-Gopay_logo.svg.png",
+owner:"Fahira salsabilla",
+number:"0882017013580"
+},
+
+{
+name:"ShopeePay",
+logo:"https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Shopee.svg/1920px-Shopee.svg.png",
+owner:"TOKOBET",
+number:"081234567890"
+},
+
+{
+name:"LinkAja",
+logo:"https://vectorez.biz.id/wp-content/uploads/2023/12/Logo-Link-Aja-1.png",
+owner:"*****",
+number:"*****"
+}
+
+];
+const statusBank = {
+    bank: [
+        "OFFLINE",      // BCA
+        "OFFLINE",       // BRI
+        "OFFLINE",       // BNI
+        "OFFLINE"   // Mandiri
+    ],
+
+    digital: [
+        "ONLINE",       // SeaBank
+        "ONLINE"       // Bank Jago
+    ],
+
+    ewallet: [
+        "ONLINE",       // DANA
+        "OFFLINE",       // OVO
+        "ONLINE",       // GoPay
+        "OFFLINE",       // ShopeePay
+        "OFFLINE"       // LinkAja
+    ]
+};
+function render(data,id){
+
+let html="";
+
+data.forEach((item,i)=>{
+
+const status = statusBank[id][i];
+const warna = status.toLowerCase();
+
+html+=`
+<div class="card">
+
+<div class="card-header" onclick="toggle('${id}${i}')">
+
+<div class="left">
+
+<div class="logo">
+    <img src="${item.logo}">
+</div>
+
+<div>
+
+<b>${item.name}</b><br>
+
+<small>Klik untuk melihat detail</small>
+
+</div>
+
+</div>
+
+<div class="status ${warna}">
+    ${status}
+</div>
+
+</div>
+
+<div class="content" id="${id}${i}">
+
+<div class="info"><b>Nama :</b><br>${item.owner}</div>
+
+<div class="info"><b>Nomor :</b><br><span id="copy${id}${i}">${item.number}</span></div>
+
+<button class="copy" onclick="copyText('copy${id}${i}')">
+
+Salin Nomor
+
+</button>
+
+</div>
+
+</div>
+`;
+
+});
+
+document.getElementById(id).innerHTML=html;
+
+}
+
+function toggle(id){
+
+let el=document.getElementById(id);
+
+el.style.display=el.style.display==="block"?"none":"block";
+
+}
+
+function copyText(id){
+
+navigator.clipboard.writeText(document.getElementById(id).innerText);
+
+alert("Nomor berhasil disalin.");
+
+}
+
+render(rekeningBank,"bank");
+render(bankDigital,"digital");
+render(ewallet,"ewallet");
+
+</script>
+
+</body>
+</html>
