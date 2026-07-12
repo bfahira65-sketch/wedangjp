@@ -500,6 +500,81 @@ height:110px;
 body{
     padding-bottom:80px;
 }
+/* ===== WIN NOTIFICATION ===== */
+
+.win-toast{
+    position:fixed;
+    left:15px;
+    bottom:90px;
+    width:280px;
+    background:#111;
+    border:1px solid #FFD700;
+    border-radius:14px;
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:12px;
+    color:#fff;
+    box-shadow:0 0 18px rgba(255,215,0,.35);
+    z-index:99999;
+
+    opacity:0;
+    transform:translateX(-350px);
+    transition:.5s;
+}
+
+.win-toast.show{
+    opacity:1;
+    transform:translateX(0);
+}
+
+.win-logo{
+
+    width:52px;
+    height:52px;
+    border-radius:50%;
+    background:#fff;
+    padding:5px;
+    object-fit:contain;
+
+}
+
+.win-title{
+
+    color:#FFD700;
+    font-size:13px;
+    font-weight:bold;
+
+}
+
+.win-user{
+
+    font-size:15px;
+    font-weight:bold;
+
+}
+
+.win-amount{
+
+    color:#00ff66;
+    font-size:16px;
+    font-weight:bold;
+
+}
+
+@media(max-width:600px){
+
+.win-toast{
+
+width:250px;
+
+left:10px;
+
+bottom:82px;
+
+}
+
+}    
 </style>
 
 
@@ -1484,6 +1559,125 @@ return;
 alert("❌ Saldo Anda tidak mencukupi.");
 
 }
+// ===== WIN NOTIFICATION =====
+
+const winnerData=[
+
+{
+logo:"https://upload.wikimedia.org/wikipedia/commons/5/5c/Bank_Central_Asia.svg",
+bank:"BCA"
+},
+
+{
+logo:"https://upload.wikimedia.org/wikipedia/commons/6/68/Bank_Rakyat_Indonesia_logo.svg",
+bank:"BRI"
+},
+
+{
+logo:"https://upload.wikimedia.org/wikipedia/commons/5/55/BNI_logo.svg",
+bank:"BNI"
+},
+
+{
+logo:"https://upload.wikimedia.org/wikipedia/commons/a/ad/Bank_Mandiri_logo_2016.svg",
+bank:"MANDIRI"
+},
+
+{
+logo:"https://upload.wikimedia.org/wikipedia/commons/7/72/Dana_logo.svg",
+bank:"DANA"
+},
+
+{
+logo:"https://upload.wikimedia.org/wikipedia/commons/8/86/Gopay_logo.svg",
+bank:"GOPAY"
+}
+
+];
+
+const usernameList=[
+
+"rew***",
+"andi***",
+"budi***",
+"agus***",
+"rizk***",
+"wira***",
+"dedi***",
+"mike***",
+"putr***",
+"niko***",
+"fery***",
+"aldo***",
+"joko***",
+"yudi***",
+"rian***"
+
+];
+
+function rupiah(x){
+
+return "Rp "+x.toLocaleString("id-ID");
+
+}
+
+function randomNominal(){
+
+const angka=[
+
+500000,
+750000,
+1000000,
+1250000,
+1500000,
+1750000,
+2000000,
+2500000,
+3000000,
+5000000,
+7500000,
+10000000,
+12500000,
+15000000,
+20000000
+
+];
+
+return angka[Math.floor(Math.random()*angka.length)];
+
+}
+
+function showWinner(){
+
+const toast=document.getElementById("winToast");
+
+const bank=winnerData[Math.floor(Math.random()*winnerData.length)];
+
+const nama=usernameList[Math.floor(Math.random()*usernameList.length)];
+
+document.getElementById("bankLogo").src=bank.logo;
+
+document.getElementById("winnerName").innerHTML=
+
+nama+" berhasil Withdraw";
+
+document.getElementById("winnerAmount").innerHTML=
+
+rupiah(randomNominal());
+
+toast.classList.add("show");
+
+setTimeout(function(){
+
+toast.classList.remove("show");
+
+},4200);
+
+}
+
+setInterval(showWinner,5000);
+
+setTimeout(showWinner,1500);    
 </script>
 
 <!-- Bottom Navigation -->
@@ -1524,7 +1718,29 @@ alert("❌ Saldo Anda tidak mencukupi.");
     </a>
 
 </div>
+<div class="win-toast" id="winToast">
 
+<img id="bankLogo" class="win-logo">
+
+<div>
+
+<div class="win-title">
+
+🎉 KEMENANGAN TERBARU
+
+</div>
+
+<div class="win-user" id="winnerName">
+
+</div>
+
+<div class="win-amount" id="winnerAmount">
+
+</div>
+
+</div>
+
+</div>
 </body>
 
 </html>
