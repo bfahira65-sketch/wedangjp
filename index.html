@@ -574,6 +574,157 @@ bottom:82px;
 
 }
 
+}
+.deposit-overlay{
+
+position:fixed;
+left:0;
+top:0;
+width:100%;
+height:100%;
+
+background:rgba(0,0,0,.75);
+
+display:none;
+
+justify-content:center;
+align-items:center;
+
+z-index:999999;
+
+backdrop-filter:blur(3px);
+
+}
+
+.deposit-popup{
+
+width:340px;
+max-width:92%;
+
+background:#181818;
+
+border:2px solid #FFD700;
+
+border-radius:16px;
+
+padding:20px;
+
+animation:popupScale .25s;
+
+}
+
+@keyframes popupScale{
+
+from{
+
+transform:scale(.8);
+opacity:0;
+
+}
+
+to{
+
+transform:scale(1);
+opacity:1;
+
+}
+
+}
+
+.deposit-title{
+
+text-align:center;
+
+font-size:18px;
+
+font-weight:bold;
+
+color:#FFD700;
+
+margin-bottom:18px;
+
+}
+
+.deposit-grid{
+
+display:grid;
+
+grid-template-columns:repeat(2,1fr);
+
+gap:12px;
+
+}
+
+.deposit-item{
+
+background:#242424;
+
+border:1px solid #444;
+
+border-radius:12px;
+
+padding:16px 10px;
+
+text-align:center;
+
+cursor:pointer;
+
+transition:.25s;
+
+font-size:28px;
+
+}
+
+.deposit-item span{
+
+display:block;
+
+margin-top:8px;
+
+font-size:13px;
+
+font-weight:bold;
+
+color:#fff;
+
+}
+
+.deposit-item:hover{
+
+background:#FFD700;
+
+color:#000;
+
+transform:translateY(-3px);
+
+}
+
+.deposit-item:hover span{
+
+color:#000;
+
+}
+
+.deposit-close{
+
+margin-top:18px;
+
+width:100%;
+
+height:45px;
+
+background:#FFD700;
+
+color:#000;
+
+font-weight:bold;
+
+border:none;
+
+border-radius:10px;
+
+cursor:pointer;
+
 }    
 </style>
 
@@ -856,9 +1007,9 @@ src="https://cdn-icons-png.flaticon.com/512/149/149071.png">
 <!-- Tombol Deposit & Withdraw -->
 <div class="wallet-action">
 
-    <a href="https://wedangjp.pages.dev/deposit" class="deposit-btn">
-        💰 Deposit
-    </a>
+<button class="deposit-btn" onclick="openDepositMenu()">
+    💰 Deposit
+</button>
 
 <a href="javascript:void(0)" class="withdraw-btn" onclick="openWithdraw()">
     🏦 Withdraw
@@ -1677,7 +1828,30 @@ toast.classList.remove("show");
 
 setInterval(showWinner,5000);
 
-setTimeout(showWinner,1500);    
+setTimeout(showWinner,1500);
+function openDepositMenu(){
+
+document.getElementById("depositMenu").style.display="flex";
+
+}
+
+function closeDepositMenu(){
+
+document.getElementById("depositMenu").style.display="none";
+
+}
+
+window.onclick=function(e){
+
+let popup=document.getElementById("depositMenu");
+
+if(e.target==popup){
+
+popup.style.display="none";
+
+}
+
+}    
 </script>
 
 <!-- Bottom Navigation -->
@@ -1741,6 +1915,88 @@ setTimeout(showWinner,1500);
 </div>
 
 </div>
+<!-- =======================
+     MENU DEPOSIT
+======================= -->
+
+<div id="depositMenu" class="deposit-overlay">
+
+    <div class="deposit-popup">
+
+        <div class="deposit-title">
+            💰 PILIH TUJUAN DEPOSIT
+        </div>
+
+        <div class="deposit-grid">
+
+            <div class="deposit-item"
+                onclick="window.location.href='https://wedangjp.pages.dev/deposit'">
+
+                🏦
+                <span>Bank Transfer</span>
+
+            </div>
+
+            <div class="deposit-item"
+                onclick="window.location.href='https://wedangjp.pages.dev/deposit'">
+
+                💳
+                <span>QRIS</span>
+
+            </div>
+
+            <div class="deposit-item"
+                onclick="window.location.href='https://wedangjp.pages.dev/deposit'">
+
+                📱
+                <span>DANA</span>
+
+            </div>
+
+            <div class="deposit-item"
+                onclick="window.location.href='https://wedangjp.pages.dev/deposit'">
+
+                🟣
+                <span>OVO</span>
+
+            </div>
+
+            <div class="deposit-item"
+                onclick="window.location.href='https://wedangjp.pages.dev/deposit'">
+
+                🟢
+                <span>GoPay</span>
+
+            </div>
+
+            <div class="deposit-item"
+                onclick="window.location.href='https://wedangjp.pages.dev/deposit'">
+
+                🟠
+                <span>ShopeePay</span>
+
+            </div>
+
+            <div class="deposit-item"
+                onclick="window.location.href='https://wedangjp.pages.dev/deposit'">
+
+                🔴
+                <span>LinkAja</span>
+
+            </div>
+
+        </div>
+
+        <button class="deposit-close"
+            onclick="closeDepositMenu()">
+
+            Tutup
+
+        </button>
+
+    </div>
+
+</div>    
 </body>
 
 </html>
