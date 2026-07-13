@@ -1947,24 +1947,39 @@ window.location.href="https://wedangjp.pages.dev/deposit";
 }
 function kirimWithdraw(){
 
-let nominal=document.getElementById("withdrawNominal").value;
+    let saldo=parseInt(document.getElementById("wdSaldo").innerText.replace(/\./g,""))||0;
 
-if(nominal==""){
+    let nominal=parseInt(document.getElementById("withdrawNominal").value)||0;
 
-alert("Silakan isi nominal withdraw.");
+    if(saldo<=0){
 
-return;
+        alert("❌ Saldo Anda tidak mencukupi.");
 
-}
+        return;
 
-alert(
-"✅ Permintaan withdraw berhasil dikirim.\n\n"+
-"Nominal : Rp "+Number(nominal).toLocaleString("id-ID")
-);
+    }
 
-closeWithdraw();
+    if(nominal<=0){
 
-}    
+        alert("❌ Silakan isi nominal withdraw.");
+
+        return;
+
+    }
+
+    if(nominal>saldo){
+
+        alert("❌ Nominal withdraw melebihi saldo Anda.");
+
+        return;
+
+    }
+
+    alert("✅ Permintaan withdraw berhasil dikirim.");
+
+    closeWithdraw();
+
+}   
 </script>
 
 <!-- Bottom Navigation -->
