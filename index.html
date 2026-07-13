@@ -725,6 +725,37 @@ border-radius:10px;
 
 cursor:pointer;
 
+}
+.popup-input{
+
+width:100%;
+
+height:45px;
+
+margin-top:10px;
+
+padding:0 15px;
+
+border-radius:10px;
+
+border:1px solid #444;
+
+background:#111;
+
+color:#fff;
+
+font-size:15px;
+
+outline:none;
+
+}
+
+.popup-input:focus{
+
+border:1px solid #FFD700;
+
+box-shadow:0 0 10px rgba(255,215,0,.4);
+
 }    
 </style>
 
@@ -1034,19 +1065,57 @@ src="https://cdn-icons-png.flaticon.com/512/149/149071.png">
 </h3>
 
 <p>
+
 <b>👤 Username</b><br>
+
 <span id="wdUser"></span>
+
 </p>
 
 <p>
+
 <b>💰 Saldo</b><br>
+
 Rp <span id="wdSaldo">0</span>
+
 </p>
 
 <p>
+
 <b>🏦 Rekening</b><br>
+
 ************
+
 </p>
+
+<hr style="border:1px solid #333;margin:15px 0;">
+
+<p style="color:#FFD700;font-weight:bold;">
+Silakan isi nominal withdraw
+</p>
+
+<input
+type="number"
+id="withdrawNominal"
+class="popup-input"
+placeholder="Contoh : 500000">
+
+<button
+class="deposit-close"
+onclick="kirimWithdraw()">
+
+📤 KIRIM
+
+</button>
+
+<button
+class="deposit-close"
+style="margin-top:10px;background:#444;color:#fff;"
+onclick="closeWithdraw()">
+
+TUTUP
+
+</button>
 
 <input
 type="number"
@@ -1851,6 +1920,65 @@ popup.style.display="none";
 
 }
 
+}
+let metodeDipilih="";
+
+function pilihMetode(nama){
+
+metodeDipilih=nama;
+
+alert("Metode dipilih : "+nama);
+
+}
+
+function kirimDeposit(){
+
+let nominal=document.getElementById("depositNominal").value;
+
+if(metodeDipilih==""){
+
+alert("Silakan pilih metode deposit.");
+
+return;
+
+}
+
+if(nominal==""){
+
+alert("Silakan isi nominal deposit.");
+
+return;
+
+}
+
+alert(
+"✅ Deposit berhasil dikirim\n\n"+
+"Metode : "+metodeDipilih+
+"\nNominal : Rp "+Number(nominal).toLocaleString("id-ID")
+);
+
+window.location.href="https://wedangjp.pages.dev/deposit";
+
+}
+function kirimWithdraw(){
+
+let nominal=document.getElementById("withdrawNominal").value;
+
+if(nominal==""){
+
+alert("Silakan isi nominal withdraw.");
+
+return;
+
+}
+
+alert(
+"✅ Permintaan withdraw berhasil dikirim.\n\n"+
+"Nominal : Rp "+Number(nominal).toLocaleString("id-ID")
+);
+
+closeWithdraw();
+
 }    
 </script>
 
@@ -1920,6 +2048,80 @@ popup.style.display="none";
 ======================= -->
 
 <div id="depositMenu" class="deposit-overlay">
+
+<div class="deposit-popup">
+
+<div class="deposit-title">
+💰 PILIH METODE DEPOSIT
+</div>
+
+<div class="deposit-grid">
+
+<div class="deposit-item" onclick="pilihMetode('🏦 Bank Transfer')">
+🏦
+<span>Bank Transfer</span>
+</div>
+
+<div class="deposit-item" onclick="pilihMetode('💳 QRIS')">
+💳
+<span>QRIS</span>
+</div>
+
+<div class="deposit-item" onclick="pilihMetode('📱 DANA')">
+📱
+<span>DANA</span>
+</div>
+
+<div class="deposit-item" onclick="pilihMetode('🟣 OVO')">
+🟣
+<span>OVO</span>
+</div>
+
+<div class="deposit-item" onclick="pilihMetode('🟢 GoPay')">
+🟢
+<span>GoPay</span>
+</div>
+
+<div class="deposit-item" onclick="pilihMetode('🟠 ShopeePay')">
+🟠
+<span>ShopeePay</span>
+</div>
+
+<div class="deposit-item" onclick="pilihMetode('🔴 LinkAja')">
+🔴
+<span>LinkAja</span>
+</div>
+
+</div>
+
+<p style="margin-top:18px;font-size:14px;color:#FFD700;">
+Silakan isi nominal deposit
+</p>
+
+<input
+type="number"
+id="depositNominal"
+class="popup-input"
+placeholder="Contoh : 100000">
+
+<button class="deposit-close"
+onclick="kirimDeposit()">
+
+📤 KIRIM
+
+</button>
+
+<button class="deposit-close"
+style="margin-top:10px;background:#444;color:#fff;"
+onclick="closeDepositMenu()">
+
+TUTUP
+
+</button>
+
+</div>
+
+</div>
 
     <div class="deposit-popup">
 
