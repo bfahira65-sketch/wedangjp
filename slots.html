@@ -14,6 +14,83 @@
 .game-btn{display:flex;gap:5px}
 .game-btn a{flex:1;height:28px;border-radius:6px;text-decoration:none;font-size:11px;font-weight:bold;display:flex;align-items:center;justify-content:center}
 .demo{background:#3b3b3b;color:#fff}.main{background:#ffd21a;color:#000}
+/* ===== TOPUP POPUP ===== */
+
+.topup-modal{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.75);
+justify-content:center;
+align-items:center;
+z-index:9999;
+}
+
+.topup-box{
+width:320px;
+background:#181818;
+border-radius:15px;
+padding:18px;
+box-shadow:0 0 20px rgba(255,210,26,.25);
+}
+
+.topup-title{
+font-size:22px;
+font-weight:bold;
+color:#FFD700;
+text-align:center;
+margin-bottom:15px;
+}
+
+.topup-item{
+margin-bottom:12px;
+}
+
+.topup-item label{
+display:block;
+font-size:14px;
+color:#FFD700;
+margin-bottom:6px;
+}
+
+.topup-item input{
+width:100%;
+height:42px;
+border:none;
+border-radius:8px;
+padding:10px;
+background:#2b2b2b;
+color:#fff;
+font-size:15px;
+}
+
+.topup-btn{
+margin-top:10px;
+display:flex;
+gap:10px;
+}
+
+.topup-btn button{
+flex:1;
+height:42px;
+border:none;
+border-radius:8px;
+font-weight:bold;
+cursor:pointer;
+}
+
+.btnTopup{
+background:#FFD700;
+color:#000;
+}
+
+.btnClose{
+background:#444;
+color:#fff;
+}    
 </style>
 </head>
 <body>
@@ -21,75 +98,147 @@
     <div class="game-card"><img src="https://maingratis.bryanfatburger.com/img/olympus-pragmatic.webp">
       <div class="game-info">
         <div class="game-title">Pragmatic Play</div>
-        <div class="game-btn"><a class="demo" href="#">DEMO</a><a class="main" href="#" onclick="alert(`❌ Silakan deposit terlebih dahulu.`);return false;">MAIN</a></div>
+        <div class="game-btn"><a class="demo" href="#">DEMO</a><a class="main" href="#" onclick="openTopup();return false;">MAIN</a></div>
       </div>
     </div>
     <div class="game-card"><img src="https://files.sitestatic.net/GameImage/SlotsProviders/mobile/normal/slot_pgsoft.jpg">
       <div class="game-info">
         <div class="game-title">PG SOFT</div>
-        <div class="game-btn"><a class="demo" href="#">DEMO</a><a class="main" href="#" onclick="alert(`❌ Silakan deposit terlebih dahulu.`);return false;">MAIN</a></div>
+        <div class="game-btn"><a class="demo" href="#">DEMO</a><a class="main" href="#" onclick="openTopup();return false;">MAIN</a></div>
       </div>
     </div>
     <div class="game-card"><img src="https://files.sitestatic.net/GameImage/SlotsProviders/mobile/normal/slot_cq9.jpg">
       <div class="game-info">
         <div class="game-title">CQ9 Gaming</div>
-        <div class="game-btn"><a class="demo" href="#">DEMO</a><a class="main" href="#" onclick="alert(`❌ Silakan deposit terlebih dahulu.`);return false;">MAIN</a></div>
+        <div class="game-btn"><a class="demo" href="#">DEMO</a><a class="main" href="#" onclick="openTopup();return false;">MAIN</a></div>
       </div>
     </div>
     <div class="game-card"><img src="https://files.sitestatic.net/GameImage/SlotsProviders/mobile/normal/besoft.gif">
       <div class="game-info">
         <div class="game-title">BESOFT</div>
-        <div class="game-btn"><a class="demo" href="#">DEMO</a><a class="main" href="#" onclick="alert(`❌ Silakan deposit terlebih dahulu.`);return false;">MAIN</a></div>
+        <div class="game-btn"><a class="demo" href="#">DEMO</a><a class="main" href="#" onclick="openTopup();return false;">MAIN</a></div>
       </div>
     </div>
     <div class="game-card"><img src="https://files.sitestatic.net/GameImage/SlotsProviders/mobile/normal/cosmoplay.png">
       <div class="game-info">
         <div class="game-title">Cosmoplay</div>
-        <div class="game-btn"><a class="demo" href="#">DEMO</a><a class="main" href="#" onclick="alert(`❌ Silakan deposit terlebih dahulu.`);return false;">MAIN</a></div>
+        <div class="game-btn"><a class="demo" href="#">DEMO</a><a class="main" href="#" onclick="openTopup();return false;">MAIN</a></div>
       </div>
     </div>
     <div class="game-card"><img src="https://files.sitestatic.net/GameImage/SlotsProviders/mobile/normal/slot_mg.jpg">
       <div class="game-info">
         <div class="game-title">Microgaming</div>
-        <div class="game-btn"><a class="demo" href="#">DEMO</a><a class="main" href="#" onclick="alert(`❌ Silakan deposit terlebih dahulu.`);return false;">MAIN</a></div>
+        <div class="game-btn"><a class="demo" href="#">DEMO</a><a class="main" href="#" onclick="openTopup();return false;">MAIN</a></div>
       </div>
     </div>
     <div class="game-card"><img src="https://files.sitestatic.net/GameImage/SlotsProviders/mobile/normal/spade_gaming.png">
       <div class="game-info">
         <div class="game-title">Spadegaming</div>
-        <div class="game-btn"><a class="demo" href="#">DEMO</a><a class="main" href="#" onclick="alert(`❌ Silakan deposit terlebih dahulu.`);return false;">MAIN</a></div>
+        <div class="game-btn"><a class="demo" href="#">DEMO</a><a class="main" href="#" onclick="openTopup();return false;">MAIN</a></div>
       </div>
     </div>
     <div class="game-card"><img src="https://files.sitestatic.net/GameImage/SlotsProviders/mobile/normal/slot_joker.jpg">
       <div class="game-info">
         <div class="game-title">Joker Gaming</div>
-        <div class="game-btn"><a class="demo" href="#">DEMO</a><a class="main" href="#" onclick="alert(`❌ Silakan deposit terlebih dahulu.`);return false;">MAIN</a></div>
+        <div class="game-btn"><a class="demo" href="#">DEMO</a><a class="main" href="#" onclick="openTopup();return false;">MAIN</a></div>
       </div>
     </div>
     <div class="game-card"><img src="https://files.sitestatic.net/GameImage/SlotsProviders/mobile/normal/jili.jpg">
       <div class="game-info">
         <div class="game-title">JILI Games</div>
-        <div class="game-btn"><a class="demo" href="#">DEMO</a><a class="main" href="#" onclick="alert(`❌ Silakan deposit terlebih dahulu.`);return false;">MAIN</a></div>
+        <div class="game-btn"><a class="demo" href="#">DEMO</a><a class="main" href="#" onclick="openTopup();return false;">MAIN</a></div>
       </div>
     </div>
     <div class="game-card"><img src="https://files.sitestatic.net/GameImage/SlotsProviders/mobile/normal/fastspin.jpg">
       <div class="game-info">
         <div class="game-title">FastSpin</div>
-        <div class="game-btn"><a class="demo" href="#">DEMO</a><a class="main" href="#" onclick="alert(`❌ Silakan deposit terlebih dahulu.`);return false;">MAIN</a></div>
+        <div class="game-btn"><a class="demo" href="#">DEMO</a><a class="main" href="#" onclick="openTopup();return false;">MAIN</a></div>
     </div>
     </div>
     <div class="game-card"><img src="https://files.sitestatic.net/GameImage/SlotsProviders/mobile/normal/booongo.jpg">
       <div class="game-info">
         <div class="game-title">Booongo</div>
-        <div class="game-btn"><a class="demo" href="#">DEMO</a><a class="main" href="#" onclick="alert(`❌ Silakan deposit terlebih dahulu.`);return false;">MAIN</a></div>
+        <div class="game-btn"><a class="demo" href="#">DEMO</a><a class="main" href="#" onclick="openTopup();return false;">MAIN</a></div>
     </div>
     </div>
     <div class="game-card"><img src="https://files.sitestatic.net/GameImage/SlotsProviders/mobile/normal/slot_pt.jpg">
       <div class="game-info">
         <div class="game-title">Playtech</div>
-        <div class="game-btn"><a class="demo" href="#">DEMO</a><a class="main" href="#" onclick="alert(`❌ Silakan deposit terlebih dahulu.`);return false;">MAIN</a></div>        
+        <div class="game-btn"><a class="demo" href="#">DEMO</a><a class="main" href="#" onclick="openTopup();return false;">MAIN</a></div>        
       </div>
     </div>
   </div>
+<div class="topup-modal" id="topupModal">
+
+<div class="topup-box">
+
+<div class="topup-title">
+💰 TOP UP SALDO
+</div>
+
+<div class="topup-item">
+<label>Saldo Dompet</label>
+<input value="Rp 0" readonly>
+</div>
+
+<div class="topup-item">
+<label>Saldo Game</label>
+<input value="Rp 0" readonly>
+</div>
+
+<div class="topup-item">
+<label>Nominal Top Up</label>
+<input id="nominalTopup" type="number" placeholder="Contoh : 100000">
+</div>
+
+<div class="topup-btn">
+
+<button class="btnTopup" onclick="kirimTopup()">
+TOP UP & MAIN
+</button>
+
+<button class="btnClose" onclick="closeTopup()">
+Tutup
+</button>
+
+</div>
+
+</div>
+
+</div>
+<script>
+
+function openTopup(){
+
+document.getElementById("topupModal").style.display="flex";
+
+}
+
+function closeTopup(){
+
+document.getElementById("topupModal").style.display="none";
+
+}
+
+function kirimTopup(){
+
+let nominal=document.getElementById("nominalTopup").value;
+
+if(nominal==""){
+
+alert("Masukkan nominal top up.");
+
+return;
+
+}
+
+alert(
+"✅ Permintaan Top Up berhasil.\n\n"+
+"Nominal : Rp "+Number(nominal).toLocaleString("id-ID")
+);
+
+}
+
+</script>  
 </body>
 </html>
