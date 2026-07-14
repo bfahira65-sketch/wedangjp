@@ -1433,15 +1433,30 @@ onclick="mainGame('https://LINK-GAME-ANDA.com')">
 <script>
 function mainGame(link){
 
-    if(localStorage.getItem("isLogin") === "true"){
+    // Belum login
+    if(localStorage.loginStatus!="aktif"){
 
-        window.location.href = link;
+        alert("❌ Silakan login terlebih dahulu.");
 
-    }else{
-
-        alert("❌ Saldo tidak cukup");
+        return;
 
     }
+
+    let saldo=Number(localStorage.saldo||0);
+
+    // Sudah login tapi saldo kosong
+    if(saldo<=0){
+
+        openTopupModal();
+
+        return;
+
+    }
+
+    // Saldo cukup
+    window.location.href=link;
+
+}
 
 }
 
