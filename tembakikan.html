@@ -5,6 +5,79 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>WEDANGJP - Tembakikan</title>
   <style>
+.topup-modal{
+display:none;
+position:fixed;
+left:0;
+top:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.75);
+justify-content:center;
+align-items:center;
+z-index:9999;
+}
+
+.topup-box{
+width:320px;
+background:#1b1b1b;
+border-radius:14px;
+padding:18px;
+color:#fff;
+}
+
+.topup-title{
+font-size:18px;
+font-weight:bold;
+text-align:center;
+margin-bottom:15px;
+color:#FFD700;
+}
+
+.topup-item{
+margin-bottom:12px;
+}
+
+.topup-item label{
+display:block;
+margin-bottom:5px;
+font-size:13px;
+}
+
+.topup-item input{
+width:100%;
+height:42px;
+border:none;
+border-radius:8px;
+padding:10px;
+font-size:14px;
+}
+
+.topup-btn{
+display:flex;
+gap:10px;
+margin-top:15px;
+}
+
+.btnTopup,
+.btnClose{
+flex:1;
+height:42px;
+border:none;
+border-radius:8px;
+font-weight:bold;
+cursor:pointer;
+}
+
+.btnTopup{
+background:#FFD700;
+color:#000;
+}
+
+.btnClose{
+background:#555;
+color:#fff;
+}    
 *{box-sizing:border-box}body{margin:0;background:#000;font-family:Arial,sans-serif}
 .game-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;padding:8px;max-width:480px;margin:auto}
 .game-card{background:#181818;border-radius:12px;overflow:hidden}
@@ -21,75 +94,148 @@
     <div class="game-card"><img src="https://files.sitestatic.net/GameImage/FishingProviders/mobile/normal/fishing_joker.jpg?v=9">
       <div class="game-info">
         <div class="game-title">JOKER</div>
-        <div class="game-btn"><a class="demo" href="#">DEMO</a><a class="main" href="#" onclick="alert(`❌ Silakan deposit terlebih dahulu.`);return false;">MAIN</a></div>
+        <div class="game-btn"><a class="demo" href="#">DEMO</a><a class="main" href="#" onclick="openTopup();return false;">MAIN</a></div>
       </div>
     </div>
     <div class="game-card"><img src="https://files.sitestatic.net/GameImage/FishingProviders/mobile/normal/spade_gaming.png">
       <div class="game-info">
         <div class="game-title">SPADE GAMING</div>
-        <div class="game-btn"><a class="demo" href="#">DEMO</a><a class="main" href="#" onclick="alert(`❌ Silakan deposit terlebih dahulu.`);return false;">MAIN</a></div>
+        <div class="game-btn"><a class="demo" href="#">DEMO</a><a class="main" href="#" onclick="openTopup();return false;">MAIN</a></div>
       </div>
     </div>
     <div class="game-card"><img src="https://files.sitestatic.net/GameImage/FishingProviders/mobile/normal/fishing_cq9.jpg?v=9">
       <div class="game-info">
         <div class="game-title">CQ9</div>
-        <div class="game-btn"><a class="demo" href="#">DEMO</a><a class="main" href="#" onclick="alert(`❌ Silakan deposit terlebih dahulu.`);return false;">MAIN</a></div>
+        <div class="game-btn"><a class="demo" href="#">DEMO</a><a class="main" href="#" onclick="openTopup();return false;">MAIN</a></div>
       </div>
     </div>
     <div class="game-card"><img src="https://files.sitestatic.net/GameImage/FishingProviders/mobile/normal/jili.jpg">
       <div class="game-info">
         <div class="game-title">JILI</div>
-        <div class="game-btn"><a class="demo" href="#">DEMO</a><a class="main" href="#" onclick="alert(`❌ Silakan deposit terlebih dahulu.`);return false;">MAIN</a></div>
+        <div class="game-btn"><a class="demo" href="#">DEMO</a><a class="main" href="#" onclick="openTopup();return false;">MAIN</a></div>
       </div>
     </div>
     <div class="game-card"><img src="https://files.sitestatic.net/GameImage/FishingProviders/mobile/normal/fishing_skywind.jpg?v=0.1">
       <div class="game-info">
         <div class="game-title">SKYWIND</div>
-        <div class="game-btn"><a class="demo" href="#">DEMO</a><a class="main" href="#" onclick="alert(`❌ Silakan deposit terlebih dahulu.`);return false;">MAIN</a></div>
+        <div class="game-btn"><a class="demo" href="#">DEMO</a><a class="main" href="#" onclick="openTopup();return false;">MAIN</a></div>
       </div>
     </div>
     <div class="game-card"><img src="https://files.sitestatic.net/GameImage/FishingProviders/mobile/normal/fishing_dragoonsoft.jpg?v=1.0">
       <div class="game-info">
         <div class="game-title">DRAGOON SOFT</div>
-        <div class="game-btn"><a class="demo" href="#">DEMO</a><a class="main" href="#" onclick="alert(`❌ Silakan deposit terlebih dahulu.`);return false;">MAIN</a></div>
+        <div class="game-btn"><a class="demo" href="#">DEMO</a><a class="main" href="#" onclick="openTopup();return false;">MAIN</a></div>
       </div>
     </div>
     <div class="game-card"><img src="https://files.sitestatic.net/GameImage/FishingProviders/mobile/normal/KA_Gaming_Fishing.jpg?v=1.0">
       <div class="game-info">
         <div class="game-title">KA GAMING</div>
-        <div class="game-btn"><a class="demo" href="#">DEMO</a><a class="main" href="#" onclick="alert(`❌ Silakan deposit terlebih dahulu.`);return false;">MAIN</a></div>
+        <div class="game-btn"><a class="demo" href="#">DEMO</a><a class="main" href="#" onclick="openTopup();return false;">MAIN</a></div>
       </div>
     </div>
     <div class="game-card"><img src="https://files.sitestatic.net/GameImage/FishingProviders/mobile/normal/fastspin.jpg">
       <div class="game-info">
         <div class="game-title">FASTSPIN</div>
-        <div class="game-btn"><a class="demo" href="#">DEMO</a><a class="main" href="#" onclick="alert(`❌ Silakan deposit terlebih dahulu.`);return false;">MAIN</a></div>
+        <div class="game-btn"><a class="demo" href="#">DEMO</a><a class="main" href="#" onclick="openTopup();return false;">MAIN</a></div>
       </div>
     </div>
     <div class="game-card"><img src="https://files.sitestatic.net/GameImage/FishingProviders/mobile/normal/fishing_fa_chai.jpg">
       <div class="game-info">
         <div class="game-title">FACHAI</div>
-        <div class="game-btn"><a class="demo" href="#">DEMO</a><a class="main" href="#" onclick="alert(`❌ Silakan deposit terlebih dahulu.`);return false;">MAIN</a></div>
+        <div class="game-btn"><a class="demo" href="#">DEMO</a><a class="main" href="#" onclick="openTopup();return false;">MAIN</a></div>
       </div>
     </div>
     <div class="game-card"><img src="https://files.sitestatic.net/GameImage/FishingProviders/mobile/normal/jdb_fishing.png">
       <div class="game-info">
         <div class="game-title">JDB</div>
-        <div class="game-btn"><a class="demo" href="#">DEMO</a><a class="main" href="#" onclick="alert(`❌ Silakan deposit terlebih dahulu.`);return false;">MAIN</a></div>
+        <div class="game-btn"><a class="demo" href="#">DEMO</a><a class="main" href="#" onclick="openTopup();return false;">MAIN</a></div>
     </div>
     </div>
     <div class="game-card"><img src="https://files.sitestatic.net/GameImage/FishingProviders/mobile/normal/ksgaming.jpg">
       <div class="game-info">
         <div class="game-title">KSGAMING</div>
-        <div class="game-btn"><a class="demo" href="#">DEMO</a><a class="main" href="#" onclick="alert(`❌ Silakan deposit terlebih dahulu.`);return false;">MAIN</a></div>
+        <div class="game-btn"><a class="demo" href="#">DEMO</a><a class="main" href="#" onclick="openTopup();return false;">MAIN</a></div>
     </div>
     </div>
     <div class="game-card"><img src="https://files.sitestatic.net/GameImage/FishingProviders/mobile/normal/ksgaming.jpg">
       <div class="game-info">
         <div class="game-title">KSGAMING</div>
-        <div class="game-btn"><a class="demo" href="#">DEMO</a><a class="main" href="#" onclick="alert(`❌ Silakan deposit terlebih dahulu.`);return false;">MAIN</a></div>        
+        <div class="game-btn"><a class="demo" href="#">DEMO</a><a class="main" href="#" onclick="openTopup();return false;">MAIN</a></div>        
       </div>
     </div>
   </div>
+<div class="topup-modal" id="topupModal">
+
+<div class="topup-box">
+
+<div class="topup-title">
+💰 TOP UP SALDO
+</div>
+
+<div class="topup-item">
+<label>Saldo Dompet</label>
+<input value="Rp 0" readonly>
+</div>
+
+<div class="topup-item">
+<label>Saldo Game</label>
+<input value="Rp 0" readonly>
+</div>
+
+<div class="topup-item">
+<label>Nominal Top Up</label>
+<input id="nominalTopup" type="number" placeholder="Contoh : 100000">
+</div>
+
+<div class="topup-btn">
+
+<button class="btnTopup" onclick="kirimTopup()">
+TOP UP & MAIN
+</button>
+
+<button class="btnClose" onclick="closeTopup()">
+Tutup
+</button>
+
+</div>
+
+</div>
+
+</div>
+<script>
+
+function openTopup(){
+
+document.getElementById("topupModal").style.display="flex";
+
+}
+
+function closeTopup(){
+
+document.getElementById("topupModal").style.display="none";
+
+}
+
+function kirimTopup(){
+
+let nominal=document.getElementById("nominalTopup").value;
+
+if(nominal==""){
+
+alert("❌ Masukkan nominal top up.");
+
+return;
+
+}
+
+// Simpan nominal agar bisa dipakai di deposit.html
+localStorage.setItem("nominalDeposit", nominal);
+
+// Pindah ke halaman deposit
+window.location.href="deposit.html";
+
+}
+
+</script>  
 </body>
 </html>
