@@ -1239,8 +1239,7 @@ Gates of Olympus
 
 
 
-<button class="btn main"
-onclick="mainGame('https://LINK-GAME-ANDA.com')">
+<button class="btn main" onclick="mainGame()">
     MAIN
 </button>
 
@@ -1289,8 +1288,7 @@ Starlight Princess
 
 
 
-<button class="btn main"
-onclick="mainGame('https://LINK-GAME-ANDA.com')">
+<button class="btn main" onclick="mainGame()">
     MAIN
 </button>
 
@@ -1339,8 +1337,7 @@ Mahjong Ways
 
 
 
-<button class="btn main"
-onclick="mainGame('https://LINK-GAME-ANDA.com')">
+<button class="btn main" onclick="mainGame()">
     MAIN
 </button>
 
@@ -1388,8 +1385,7 @@ Mahjong Ways 2
 
 
 
-<button class="btn main"
-onclick="mainGame('https://LINK-GAME-ANDA.com')">
+<button class="btn main" onclick="mainGame()">
     MAIN
 </button>
 
@@ -1431,17 +1427,19 @@ onclick="mainGame('https://LINK-GAME-ANDA.com')">
 
 
 <script>
-function mainGame(link){
+function mainGame(){
 
-    if(localStorage.getItem("isLogin") === "true"){
+    // Cek apakah sudah login
+    if(localStorage.loginStatus!="aktif"){
 
-        window.location.href = link;
+        alert("❌ Silakan login terlebih dahulu.");
 
-    }else{
-
-        alert("❌ Saldo tidak cukup");
+        return;
 
     }
+
+    // Jika sudah login langsung ke halaman Slots
+    window.location.href="https://wedangjp.pages.dev/slots";
 
 }
 
