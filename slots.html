@@ -128,7 +128,7 @@ color:#fff;
     <div class="game-card"><img src="https://files.sitestatic.net/GameImage/SlotsProviders/mobile/normal/slot_mg.jpg">
       <div class="game-info">
         <div class="game-title">Microgaming</div>
-        <div class="game-btn"><a class="demo" href="#">DEMO</a><a class="main" href="deposit.html" onclick="openTopup();return false;">MAIN</a></div>
+        <div class="game-btn"><a class="demo" href="#">DEMO</a><a class="main" href="#" onclick="openTopup();return false;">MAIN</a></div>
       </div>
     </div>
     <div class="game-card"><img src="https://files.sitestatic.net/GameImage/SlotsProviders/mobile/normal/spade_gaming.png">
@@ -226,16 +226,17 @@ let nominal=document.getElementById("nominalTopup").value;
 
 if(nominal==""){
 
-alert("Masukkan nominal top up.");
+alert("❌ Masukkan nominal top up.");
 
 return;
 
 }
 
-alert(
-"✅ Permintaan Top Up berhasil.\n\n"+
-"Nominal : Rp "+Number(nominal).toLocaleString("id-ID")
-);
+// Simpan nominal agar bisa dipakai di deposit.html
+localStorage.setItem("nominalDeposit", nominal);
+
+// Pindah ke halaman deposit
+window.location.href="deposit.html";
 
 }
 
