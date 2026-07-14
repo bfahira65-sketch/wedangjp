@@ -1179,21 +1179,26 @@ placeholder="🔎 Cari Game">
 
 <div class="category">
 
-<button class="category-item" onclick="window.location.href='slots.html'">🎰 SLOTS</button>
+<a href="games.html"
+onclick="return cekLogin(event,this)">🎮 GAMES</a>
 
-<button class="category-item" onclick="window.location.href='games.html'">🎮 GAMES</button>
+<a href="sports.html"
+onclick="return cekLogin(event,this)">⚽ SPORTS</a>
 
-<button class="category-item" onclick="window.location.href='sports.html'">⚽ SPORTS</button>
+<a href="casino.html"
+onclick="return cekLogin(event,this)">🎲 CASINO</a>
 
-<button class="category-item" onclick="window.location.href='casino.html'">🎲 CASINO</button>
+<a href="p2p.html"
+onclick="return cekLogin(event,this)">🤝 P2P</a>
 
-<button class="category-item" onclick="window.location.href='p2p.html'">🤝 P2P</button>
+<a href="sabung.html"
+onclick="return cekLogin(event,this)">🐓 SABUNG AYAM</a>
 
-<button class="category-item" onclick="window.location.href='sabung.html'">🐓 SABUNG AYAM</button>
+<a href="fishing.html"
+onclick="return cekLogin(event,this)">🐟 TEMBAK IKAN</a>
 
-<button class="category-item" onclick="window.location.href='tembakikan.html'">🐟 TEMBAK IKAN</button>
-
-<button class="category-item" onclick="window.location.href='lotre.html'">🎟️ LOTRE</button>
+<a href="lottery.html"
+onclick="return cekLogin(event,this)">🎟️ LOTRE</a>
 
 </div>
 
@@ -2103,7 +2108,24 @@ TUTUP
 </button>
 
 </div>
-  
+function cekLogin(event, link){
+
+    const username = localStorage.getItem("username");
+
+    if(!username){
+
+        event.preventDefault();
+
+        alert("❌ Silakan login terlebih dahulu.");
+
+        return false;
+
+    }
+
+    // Sudah login → lanjut ke link tujuan
+    return true;
+
+}  
 </body>
 
 </html>
