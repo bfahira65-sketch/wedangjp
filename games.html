@@ -91,6 +91,49 @@
       </div>
     </div>
   </div>
-<script src="main.js"></script>  
+<script src="main.js"></script>
+...
+  </div> <!-- game-grid selesai -->
+
+<!-- ========================= -->
+<!-- POPUP TOP UP -->
+<!-- ========================= -->
+
+<div class="topup-modal" id="topupModal">
+
+    <div class="topup-box">
+
+        <div class="topup-title">
+            💰 TOP UP SALDO
+        </div>
+
+        <label>Saldo Dompet</label>
+        <input id="saldoDompet" readonly>
+
+        <label>Saldo Game</label>
+        <input id="saldoGame" readonly>
+
+        <label>Nominal Top Up</label>
+        <input id="nominalTopup" type="number" placeholder="Masukkan nominal">
+
+        <div class="topup-btn">
+
+            <button onclick="kirimTopup()">
+                TOP UP & MAIN
+            </button>
+
+            <button onclick="closeTopup()">
+                Tutup
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Panggil main.js -->
+<script src="main.js"></script>
+
 </body>
 </html>
