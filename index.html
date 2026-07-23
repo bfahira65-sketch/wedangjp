@@ -8,72 +8,6 @@
 
 
 <style>
-/* ===========================
-   FLOAT MENU WEDANGJP
-=========================== */
-
-.float-menu{
-    position:fixed;
-    left:10px;
-    bottom:145px; /* tepat di atas notifikasi kemenangan */
-    z-index:999999;
-}
-
-.menu-toggle{
-    width:52px;
-    height:52px;
-    background:#1b1b1b;
-    border:2px solid #FFD700;
-    border-radius:14px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    flex-direction:column;
-    cursor:pointer;
-    color:#FFD700;
-    font-weight:bold;
-    font-size:22px;
-    box-shadow:0 0 10px rgba(255,215,0,.35);
-}
-
-.menu-toggle small{
-    font-size:9px;
-    margin-top:2px;
-    color:#fff;
-}
-
-.menu-list{
-    display:none;
-    margin-bottom:8px;
-}
-
-.menu-list.show{
-    display:flex;
-    flex-direction:column;
-}
-
-.menu-item{
-    width:52px;
-    height:52px;
-    margin-bottom:8px;
-    background:#1b1b1b;
-    border:2px solid #FFD700;
-    border-radius:14px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    text-decoration:none;
-    color:#FFD700;
-    font-size:22px;
-    transition:.3s;
-    box-shadow:0 0 10px rgba(255,215,0,.25);
-}
-
-.menu-item:hover{
-    background:#FFD700;
-    color:#000;
-    transform:scale(1.08);
-}    
     /* ========================= */
 /* Deposit & Withdraw */
 /* ========================= */
@@ -1097,28 +1031,10 @@ src="https://cdn-icons-png.flaticon.com/512/149/149071.png">
 
 </p>
 
-<!-- FLOAT MENU -->
 
-<div class="float-menu">
 
-    <div class="menu-list" id="floatMenu">
 
-        <a class="menu-item" href="https://wedangjp.pages.dev/rtp">📈</a>
 
-        <a class="menu-item" href="https://wedangjp.pages.dev/spin">🎡</a>
-
-        <a class="menu-item" href="https://wa.me/62887793289102">💬</a>
-
-        <a class="menu-item" href="https://wedangjp.pages.dev/promosi">🎁</a>
-
-    </div>
-
-    <div class="menu-toggle" onclick="toggleMenu()">
-        ☰
-        <small>MENU</small>
-    </div>
-
-</div>
 <!-- Tombol Deposit & Withdraw -->
 <div class="wallet-action">
 
@@ -2187,15 +2103,7 @@ TUTUP
 </button>
 
 </div>
-<script>
-
-function toggleMenu(){
-
-    document.getElementById("floatMenu").classList.toggle("show");
-
-}
-
-</script>  
+  
 </body>
 
 </html>
