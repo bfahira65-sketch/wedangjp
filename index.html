@@ -2014,7 +2014,30 @@ function kirimWithdraw(){
 
     closeWithdraw();
 
-}   
+}
+function toggleSideMenu(){
+
+    document
+    .getElementById("sideItems")
+    .classList
+    .toggle("show");
+
+}
+
+document.addEventListener("click",function(e){
+
+    const menu=document.querySelector(".side-menu");
+
+    if(!menu.contains(e.target)){
+
+        document
+        .getElementById("sideItems")
+        .classList
+        .remove("show");
+
+    }
+
+});    
 </script>
 
 <!-- Bottom Navigation -->
