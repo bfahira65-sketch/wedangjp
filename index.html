@@ -6,7 +6,59 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+/* ===========================
+   FLOAT MENU WEDANGJP
+=========================== */
 
+.float-menu{
+    position:fixed;
+    top:110px;
+    left:10px;
+    z-index:99999;
+}
+
+.menu-toggle{
+    width:48px;
+    height:48px;
+    background:#1a1a1a;
+    border:2px solid #FFD700;
+    border-radius:12px;
+    color:#FFD700;
+    font-size:24px;
+    cursor:pointer;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    box-shadow:0 0 10px rgba(255,215,0,.35);
+}
+
+.menu-list{
+    display:none;
+    margin-top:8px;
+}
+
+.menu-list a{
+    width:48px;
+    height:48px;
+    margin-bottom:8px;
+    background:#1a1a1a;
+    border:2px solid #FFD700;
+    border-radius:12px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-decoration:none;
+    color:#FFD700;
+    font-size:22px;
+    transition:.3s;
+    box-shadow:0 0 8px rgba(255,215,0,.25);
+}
+
+.menu-list a:hover{
+    transform:scale(1.1);
+    background:#FFD700;
+    color:#000;
+}
 <style>
     /* ========================= */
 /* Deposit & Withdraw */
@@ -2103,7 +2155,42 @@ TUTUP
 </button>
 
 </div>
-  
+<div class="float-menu">
+
+    <div class="menu-toggle" onclick="toggleFloatMenu()">
+        ☰
+    </div>
+
+    <div class="menu-list" id="floatMenu">
+
+        <a href="https://wedangjp.pages.dev/rtp" title="RTP">📈</a>
+
+        <a href="https://wedangjp.pages.dev/spin" title="Spin">🎡</a>
+
+        <a href="https://wa.me/62887793289102" title="Chat">💬</a>
+
+        <a href="https://wedangjp.pages.dev/promo" title="Promo">🎁</a>
+
+    </div>
+
+</div>
+<script>
+function toggleFloatMenu(){
+
+    var menu = document.getElementById("floatMenu");
+
+    if(menu.style.display==="block"){
+
+        menu.style.display="none";
+
+    }else{
+
+        menu.style.display="block";
+
+    }
+
+}
+</script>    
 </body>
 
 </html>
