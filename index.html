@@ -756,59 +756,7 @@ border:1px solid #FFD700;
 
 box-shadow:0 0 10px rgba(255,215,0,.4);
 
-}
-/* ===== FLOAT MENU ===== */
-.side-menu{
-    position:fixed;
-    left:10px;
-    bottom:170px;
-    z-index:99998;
-    display:flex;
-    flex-direction:column;
-    gap:8px;
-}
-
-.side-btn{
-    width:62px;
-    height:62px;
-    background:linear-gradient(180deg,#67d6ff,#58bce5);
-    border:2px solid #ffffff;
-    border-radius:16px;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    text-decoration:none;
-    color:#000;
-    font-size:10px;
-    font-weight:bold;
-    box-shadow:0 0 12px rgba(0,180,255,.4);
-    transition:.25s;
-}
-
-.side-btn:hover{
-    transform:scale(1.06);
-}
-
-.side-btn img{
-    width:28px;
-    height:28px;
-    margin-bottom:3px;
-}
-
-.side-menu-icon{
-    font-size:26px;
-    line-height:1;
-    color:#fff;
-}
-.popup-input:focus{
-
-    border:1px solid #FFD700;
-
-    box-shadow:0 0 10px rgba(255,215,0,.4);
-
-}
-
+}    
 </style>
 
 
@@ -2014,30 +1962,7 @@ function kirimWithdraw(){
 
     closeWithdraw();
 
-}
-function toggleSideMenu(){
-
-    document
-    .getElementById("sideItems")
-    .classList
-    .toggle("show");
-
-}
-
-document.addEventListener("click",function(e){
-
-    const menu=document.querySelector(".side-menu");
-
-    if(!menu.contains(e.target)){
-
-        document
-        .getElementById("sideItems")
-        .classList
-        .remove("show");
-
-    }
-
-});    
+}   
 </script>
 
 <!-- Bottom Navigation -->
@@ -2076,47 +2001,6 @@ document.addEventListener("click",function(e){
         </div>
         <span>LIVE CHAT</span>
     </a>
-
-</div>
-<!-- FLOAT MENU -->
-
-<div class="side-menu">
-
-    <div class="menu-toggle" onclick="toggleSideMenu()">
-
-        <i>☰</i>
-
-        <span>MENU</span>
-
-    </div>
-
-    <div class="menu-items" id="sideItems">
-
-        <a href="https://LINK-RTP" class="menu-btn">
-
-            🎰
-
-            <div>RTP</div>
-
-        </a>
-
-        <a href="https://LINK-SPIN" class="menu-btn">
-
-            🎡
-
-            <div>SPIN</div>
-
-        </a>
-
-        <a href="https://wa.me/628xxxxxxxxxx" class="menu-btn">
-
-            💬
-
-            <div>WA</div>
-
-        </a>
-
-    </div>
 
 </div>
 <div class="win-toast" id="winToast">
