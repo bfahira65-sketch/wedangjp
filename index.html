@@ -756,6 +756,50 @@ border:1px solid #FFD700;
 
 box-shadow:0 0 10px rgba(255,215,0,.4);
 
+}
+/* ===== FLOAT MENU ===== */
+.side-menu{
+    position:fixed;
+    left:10px;
+    bottom:170px;
+    z-index:99998;
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+}
+
+.side-btn{
+    width:62px;
+    height:62px;
+    background:linear-gradient(180deg,#67d6ff,#58bce5);
+    border:2px solid #ffffff;
+    border-radius:16px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-decoration:none;
+    color:#000;
+    font-size:10px;
+    font-weight:bold;
+    box-shadow:0 0 12px rgba(0,180,255,.4);
+    transition:.25s;
+}
+
+.side-btn:hover{
+    transform:scale(1.06);
+}
+
+.side-btn img{
+    width:28px;
+    height:28px;
+    margin-bottom:3px;
+}
+
+.side-menu-icon{
+    font-size:26px;
+    line-height:1;
+    color:#fff;
 }    
 </style>
 
@@ -2003,6 +2047,29 @@ function kirimWithdraw(){
     </a>
 
 </div>
+<div class="side-menu">
+
+<a href="#" class="side-btn">
+<div class="side-menu-icon">☰</div>
+MENU
+</a>
+
+<a href="https://LINK-RTP" class="side-btn">
+<img src="https://cdn-icons-png.flaticon.com/512/3565/3565418.png">
+RTP
+</a>
+
+<a href="https://LINK-SPIN" class="side-btn">
+<img src="https://cdn-icons-png.flaticon.com/512/3523/3523887.png">
+SPIN
+</a>
+
+<a href="https://wa.me/628xxxxxxxxxx" class="side-btn">
+<img src="https://cdn-icons-png.flaticon.com/512/733/733585.png">
+WA
+</a>
+
+</div>    
 <div class="win-toast" id="winToast">
 
 <img id="bankLogo" class="win-logo">
