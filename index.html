@@ -756,7 +756,46 @@ border:1px solid #FFD700;
 
 box-shadow:0 0 10px rgba(255,215,0,.4);
 
-}    
+}
+
+/* ==========================
+   QUICK MENU
+========================== */
+
+.quick-menu{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    margin:15px 0 20px;
+}
+
+.quick-btn{
+    flex:1;
+    max-width:110px;
+    height:42px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:6px;
+    text-decoration:none;
+    color:#fff;
+    background:#151515;
+    border:1px solid #333;
+    border-radius:12px;
+    font-size:13px;
+    font-weight:bold;
+    transition:.3s;
+}
+
+.quick-btn:hover{
+    background:#FFD700;
+    color:#000;
+}
+
+.quick-btn img{
+    width:20px;
+    height:20px;
+}
 </style>
 
 
@@ -785,7 +824,25 @@ box-shadow:0 0 10px rgba(255,215,0,.4);
          alt="Logo"
          class="login-logo-img">
 </div>
+<!-- MENU CEPAT -->
+<div class="quick-menu">
 
+    <a href="https://wa.me/6281234567890" class="quick-btn" target="_blank">
+        <span class="icon">💬</span>
+        <span>WhatsApp</span>
+    </a>
+
+    <a href="https://wedangjp.pages.dev/rtp" class="quick-btn">
+        <span class="icon">📊</span>
+        <span>RTP</span>
+    </a>
+
+    <a href="https://www.google.com" class="quick-btn" target="_blank">
+        <span class="icon">🔍</span>
+        <span>Google</span>
+    </a>
+
+</div>
 
 
 <input id="loginUser"
