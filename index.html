@@ -800,7 +800,15 @@ box-shadow:0 0 10px rgba(255,215,0,.4);
     font-size:26px;
     line-height:1;
     color:#fff;
-}    
+}
+.popup-input:focus{
+
+    border:1px solid #FFD700;
+
+    box-shadow:0 0 10px rgba(255,215,0,.4);
+
+}
+
 </style>
 
 
@@ -2047,29 +2055,47 @@ function kirimWithdraw(){
     </a>
 
 </div>
+<!-- FLOAT MENU -->
+
 <div class="side-menu">
 
-<a href="#" class="side-btn">
-<div class="side-menu-icon">☰</div>
-MENU
-</a>
+    <div class="menu-toggle" onclick="toggleSideMenu()">
 
-<a href="https://LINK-RTP" class="side-btn">
-<img src="https://cdn-icons-png.flaticon.com/512/3565/3565418.png">
-RTP
-</a>
+        <i>☰</i>
 
-<a href="https://LINK-SPIN" class="side-btn">
-<img src="https://cdn-icons-png.flaticon.com/512/3523/3523887.png">
-SPIN
-</a>
+        <span>MENU</span>
 
-<a href="https://wa.me/628xxxxxxxxxx" class="side-btn">
-<img src="https://cdn-icons-png.flaticon.com/512/733/733585.png">
-WA
-</a>
+    </div>
 
-</div>    
+    <div class="menu-items" id="sideItems">
+
+        <a href="https://LINK-RTP" class="menu-btn">
+
+            🎰
+
+            <div>RTP</div>
+
+        </a>
+
+        <a href="https://LINK-SPIN" class="menu-btn">
+
+            🎡
+
+            <div>SPIN</div>
+
+        </a>
+
+        <a href="https://wa.me/628xxxxxxxxxx" class="menu-btn">
+
+            💬
+
+            <div>WA</div>
+
+        </a>
+
+    </div>
+
+</div>
 <div class="win-toast" id="winToast">
 
 <img id="bankLogo" class="win-logo">
